@@ -1,0 +1,18 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Event Generator</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+    <script src="/static/scripts.js" defer></script>
+</head>
+<body>
+    <h1>Event Generator</h1>
+    <form id="event-form" action="/generate_event" method="post">
+        <label for="event-details">Enter event details:</label>
+        <input type="text" id="event-details" name="event_details" required>
+        <button type="submit">Generate Event</button>
+    </form>
+</body>
+</html>

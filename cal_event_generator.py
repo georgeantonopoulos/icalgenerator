@@ -3,14 +3,15 @@ from PyQt5.QtGui import QFont, QPalette, QColor
 from PyQt5.QtWidgets import QApplication, QMainWindow, QLabel, QLineEdit, QPushButton
 import openai
 import os
+from dotenv import load_dotenv
 
-
-class CalanderEventGenerator():
+class CalendarEventGenerator():
 
     def __init__(self, prompt) -> None:
-
+        
+        load_dotenv()
         # Set up your OpenAI API key
-        openai.api_key = "YOUR OPEN API KEY"
+        openai.api_key = os.environ.get("OPENAI_API_KEY")
 
         # get current date and time from os
         self.date = os.popen('date').read()
@@ -114,7 +115,7 @@ class EventGeneratorUI(QMainWindow):
 
     def generateEvent(self):
         # This function would generate the event based on the user input text
-        event = CalanderEventGenerator(self.lineEdit.text())
+        event = CalendarEventGenerator(self.lineEdit.text())
         event.save_ical()
         event.open_ical()
 
