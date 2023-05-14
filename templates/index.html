@@ -1,18 +1,15 @@
 <!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Event Generator</title>
-    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
-    <script src="/static/scripts.js" defer></script>
-</head>
-<body>
-    <h1>Event Generator</h1>
-    <form id="event-form" action="/generate_event" method="post">
-        <label for="event-details">Enter event details:</label>
-        <input type="text" id="event-details" name="event_details" required>
-        <button type="submit">Generate Event</button>
+<html>
+  <head>
+    <title>Calendar Event Generator</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+  </head>
+  <body>
+    <h1>Calendar Event Generator</h1>
+    <form method="POST" action="/generate-event">
+      <label for="prompt">Enter a prompt:</label>
+      <input type="text" id="prompt" name="prompt"><br><br>
+      <button type="submit">Generate Event</button>
     </form>
-</body>
+  </body>
 </html>
