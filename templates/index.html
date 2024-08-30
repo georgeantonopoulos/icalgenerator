@@ -2,14 +2,16 @@
 <html>
   <head>
     <title>Calendar Event Generator</title>
-    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='styles.css') }}">
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='output.css', v=(''|timestamp)) }}">
   </head>
-  <body>
-    <h1>Calendar Event Generator</h1>
-    <form method="POST" action="/generate-event">
-      <label for="prompt">Enter a prompt:</label>
-      <input type="text" id="prompt" name="prompt"><br><br>
-      <button type="submit">Generate Event</button>
-    </form>
+  <body class="bg-gradient-to-r from-blue-400 to-blue-700 flex items-center justify-center h-screen">
+    <div class="bg-white p-8 rounded-lg shadow-md w-96">
+      <h1 class="text-2xl font-bold mb-4">Calendar Event Generator</h1>
+      <form method="POST" action="/generate-event">
+        <label for="prompt" class="block text-sm font-medium mb-2">Enter a prompt:</label>
+        <input type="text" id="prompt" name="prompt" class="block w-full p-2 border border-gray-300 rounded-md mb-4">
+        <button type="submit" class="w-full py-2 px-4 bg-blue-500 text-white rounded-md">Generate Event</button>
+      </form>
+    </div>
   </body>
 </html>
